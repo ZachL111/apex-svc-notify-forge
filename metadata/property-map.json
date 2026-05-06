@@ -1,0 +1,28 @@
+{
+  "repo": "apex-svc-notify-forge",
+  "language": "Kotlin",
+  "category": "Backend services",
+  "goal": "Design a Kotlin verification harness for notify systems, covering resource planning, capacity fixtures, and failure-oriented tests.",
+  "weights": {
+    "signal": 4,
+    "slack": 2,
+    "confidence": 2,
+    "drag": 4
+  },
+  "thresholds": {
+    "ship": 195,
+    "watch": 128
+  },
+  "properties": [
+    "raising signal cannot reduce score",
+    "raising drag cannot improve score",
+    "lane labels must match configured thresholds",
+    "golden fixture ids must remain unique"
+  ],
+  "fixture_files": [
+    "fixtures/golden/scoreboard.csv",
+    "fixtures/golden/lane-matrix.csv",
+    "fixtures/fuzz/mutations.csv",
+    "fixtures/fuzz/boundary-cases.jsonl"
+  ]
+}
