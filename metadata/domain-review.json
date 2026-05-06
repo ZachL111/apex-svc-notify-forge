@@ -1,0 +1,73 @@
+{
+  "repo": "apex-svc-notify-forge",
+  "language": "Kotlin",
+  "category": "Backend services",
+  "goal": "Design a Kotlin verification harness for notify systems, covering resource planning, capacity fixtures, and failure-oriented tests.",
+  "review_model": {
+    "terms": [
+      "queue pressure",
+      "retry load",
+      "worker slack",
+      "session drift"
+    ],
+    "lanes": [
+      "ship",
+      "watch",
+      "hold"
+    ],
+    "score": "signal * 2 + slack + confidence - drag * 3",
+    "purpose": "surface the domain-specific cases that need the most careful review"
+  },
+  "cases": [
+    {
+      "name": "baseline",
+      "focus": "queue pressure",
+      "signal": 46,
+      "slack": 22,
+      "drag": 32,
+      "confidence": 46,
+      "score": 64,
+      "lane": "hold"
+    },
+    {
+      "name": "stress",
+      "focus": "retry load",
+      "signal": 48,
+      "slack": 50,
+      "drag": 11,
+      "confidence": 45,
+      "score": 158,
+      "lane": "ship"
+    },
+    {
+      "name": "edge",
+      "focus": "worker slack",
+      "signal": 67,
+      "slack": 35,
+      "drag": 8,
+      "confidence": 45,
+      "score": 190,
+      "lane": "ship"
+    },
+    {
+      "name": "recovery",
+      "focus": "session drift",
+      "signal": 56,
+      "slack": 34,
+      "drag": 22,
+      "confidence": 57,
+      "score": 137,
+      "lane": "watch"
+    },
+    {
+      "name": "stale",
+      "focus": "queue pressure",
+      "signal": 58,
+      "slack": 51,
+      "drag": 16,
+      "confidence": 73,
+      "score": 192,
+      "lane": "ship"
+    }
+  ]
+}
